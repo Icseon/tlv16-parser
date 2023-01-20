@@ -59,7 +59,7 @@ module.exports = {
             /* If we've hit a null byte, we'll finalize our string */
             if (buffer[i] === 0x00)
             {
-                const string = buffer.toString();
+                const string = buffer.toString('utf8', start, i);
                 strings.push(string);
                 start = i + 1;
             }
