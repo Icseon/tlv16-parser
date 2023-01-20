@@ -1,6 +1,6 @@
 {
   "name": "tlv16-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple tlv16 data parser with string utility functions",
   "main": "index.js",
   "scripts": {
