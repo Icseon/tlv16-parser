@@ -3,7 +3,7 @@ Simple tlv16 data parser with string utility functions
 
 
 ## Usage
-```
+```js
 const parser = require('tlv16-parser');
 
 /* Read tlv16 messages */
