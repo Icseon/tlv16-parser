@@ -18,11 +18,11 @@ module.exports = {
         {
 
             /* Read packet type */
-            const type = buffer.readUInt16BE(offset);
+            const type = buffer.readUInt16LE(offset);
             offset += 2;
 
             /* Read packet length */
-            const length = buffer.readUInt16BE(offset);
+            const length = buffer.readUInt16LE(offset);
             offset += 2;
 
             /* Read packet value */
@@ -100,10 +100,10 @@ module.exports = {
         const tlvBuffer = Buffer.alloc(4 + length);
 
         /* Write the type to the first two bytes of the TLV buffer using the writeUInt16BE method */
-        tlvBuffer.writeUInt16BE(type, 0);
+        tlvBuffer.writeUInt16LE(type, 0);
 
         /* Write the length to the next two bytes of the TLV buffer using the writeUInt16BE method */
-        tlvBuffer.writeUInt16BE(length, 2);
+        tlvBuffer.writeUInt16LE(length, 2);
 
         /* Finally, copy the value buffer into the TLV buffer starting from the 4th byte */
         buffer.copy(tlvBuffer, 4);
