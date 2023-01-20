@@ -60,7 +60,15 @@ module.exports = {
             if (buffer[i] === 0x00)
             {
                 const string = buffer.toString('utf8', start, i);
-                strings.push(string);
+
+                if (string.length > 0)
+                {
+
+                    /* If the string length is greater than zero, we'll add it to our results */
+                    strings.push(string);
+
+                }
+
                 start = i + 1;
             }
 
