@@ -29,8 +29,11 @@ module.exports = {
             const value = buffer.slice(offset, offset + length);
             offset += length;
 
+            /* Compute full buffer */
+            const buffer = Buffer.concat([ Buffer.from(type), Buffer.from(length), value) ], length + 4);
+
             /* Add to parsed array */
-            parsed.push({ type, length, value });
+            parsed.push({ type, length, value, buffer });
 
         }
 
