@@ -30,10 +30,10 @@ module.exports = {
             offset += length;
 
             /* Compute full buffer */
-            const buffer = Buffer.concat([ Buffer.from(type), Buffer.from(length), value ], length + 4);
+            const fullBuffer = Buffer.concat([ Buffer.from(type), Buffer.from(length), value ], length + 4);
 
             /* Add to parsed array */
-            parsed.push({ type, length, value, buffer });
+            parsed.push({ type, length, value, fullBuffer });
 
         }
 
