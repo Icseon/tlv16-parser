@@ -19,10 +19,12 @@ module.exports = {
 
             /* Read packet type */
             const type = buffer.readUInt16LE(offset);
+            const typeBytes = buffer.slice(offset, offset + 2);
             offset += 2;
 
             /* Read packet length */
             const length = buffer.readUInt16LE(offset);
+            const lengthBytes = buffer.slice(offset, offset + 2);
             offset += 2;
 
             /* Read packet value */
@@ -30,7 +32,8 @@ module.exports = {
             offset += length;
 
             /* Compute full buffer */
-            const fullBuffer = Buffer.concat([ Buffer.from(type), Buffer.from(length), value ], length + 4);
+            const fullLength = typeBytes.length + lengthBytes.length + value.length;
+            const fullBuffer = Buffer.concat([ typeBytes, lengthBytes, value ], fullLength);
 
             /* Add to parsed array */
             parsed.push({ type, length, value, fullBuffer });
